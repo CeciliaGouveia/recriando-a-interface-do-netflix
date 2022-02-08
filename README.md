@@ -7,4 +7,5 @@ Clone do site Netflix, com catálogo de séries.
 
 - HTML
 - CSS
+- Javascript
 - JQuery
