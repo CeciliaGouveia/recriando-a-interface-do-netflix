@@ -1,0 +1,166 @@
+/* Vamos declarar variáveis no CSS para definir as cores que utilizaremos em muitos lugares diferentes da página. */
+:root{
+    --vermelho:#E50914;
+    --preta:#141414;
+}
+
+/* Uma das regras importantes do CSS é criar regras de formatação que deixem o seu site padrão, independentemente do navegador que estejamos utilizando. Para isso, vamos dar um "reset" nas configurações do site para que ele tenha as configurações que a gente determinar daqui para a frente. */
+*{
+    margin: 0;
+    padding: 0;
+
+    /* o valor "border-box" tem a finalidade de determinar que os tamanhos dos elementos de uma "div" se adaptem ao tamanho que definimos para essa "div" */
+    box-sizing: border-box;
+}
+
+
+/* ELEMENTOS-BASE */
+
+body{
+
+    /* Vamos chamar a execução da variável que criamos no ":root" */
+    background: var(--preta);
+    font-family: 'Arial', Times, serif;
+    color: white;
+}
+
+/* Vamos estipular um padrão geral para todas as "classes wrappes" que existam na página */
+.container{
+   margin-left: 20px;
+}
+
+header .container{
+
+    /* Vamos colocar o valor "flex" na propriedade "display" e isso fará a gente utilizar o que chamamos de "flexbox" que é um tipo de maneira de você alinhar os elementos em tela. 
+    Uma coisa interessante quando colocamos esse valor "flex" apenas é que ele tem a tendência de jogar todos os elementos-filhos para uma linha apenas, no canto superior do elemento-pai. (nós podemos criar esse mesmo comportamento se, além do "display flex" nós utilizarmos a propriedade "flex-direction" com o valor "row" (row é como se fosse o "defaut" nesse caso, ou seja, o comportamento padrão)  */
+    display: flex;
+
+    /* Vamos alinhar verticalmente os nossos elementos-filhos. Vamos colocá-los no meio, verticalmente, do elemento-pai */
+    align-items: center;
+
+    /* Vamos colocar um espaço horizontal entre o nosso elemento-filho "logo" e o nosso elemento-filho "nav". Assim, a "logo" fica de um lado e os elementos-filho "a" do elemento-filho "nav" ficarão do outro lado da página" */
+    justify-content: space-between;
+}
+
+header .container .logo{
+
+    /* Vamos utilizar a declaração "margin-left: 5px" para dar um afastamento entre a logo e a borda da página */
+    margin-left: 5px;
+
+    /* Vamos chamar a execução da variável que criamos no ":root" */
+    color: var(--vermelho);
+    font-family: 'Arial Black', Times;
+    font-size: 40px;
+
+}
+
+/* Vamos estilizar os links do nosso "menu de navegação" */
+header .container nav a{
+
+    /* Vamos retirar aquela decoração padrão de link que a tag "a" carrega*/
+    text-decoration: none;
+
+    /* Vamos colocar uma cor diferente para os nossos links */
+    color: #AAA;
+
+    /* Vamos dar uma margem à direnta aos nossos links para que eles fiquem afastados uns dos outros */
+    margin-right: 10px;
+}
+
+
+/* Vamos estilizar a cor que nossos links do "menu de navegação" terão quando o usuário passar o mouse por cima deles. Para isso nós vamos indicar o evento específico que queremos que essa configuração seja aplicada*/
+header .container nav a:hover{
+    color: #fff;
+}
+
+
+/* FILME PRINCIPAL */
+
+main .filme-principal{
+    font-size: 16px;
+    position: auto;
+
+    /* Vamos adicionar uma tonalidade gradiente para o nosso fundo da div "filme-principal" e vamos adicionar uma imagem nessa div "filme-principal.*/
+    background: linear-gradient(rgba(0, 0, 0, .50), rgba(0,0,0,.50)100%), url('../img/capa-kim.jpg');
+
+    /* Para aumentar a altura da imagem que inserimos, vamos definir um tamanho de altura para essa div */
+    height: 600px;
+
+    /* Vamos fazer com que nossa imagem tenha o tamanho igual a da nossa div "container", para que a imagem cubra a div "container" toda */
+    background-size: cover;
+
+    /* Vamos definir a disposições de todos os elementos filhso dentro da div "filme-principal" */
+    display: flex;
+    flex-direction: column;
+
+    /* A propriedade "justify-content" sempre segue a direção da propriedade "flex-direction".*/
+    justify-content: center;
+
+    /* Vamos agrupar os elementos-filho na esquerda do elemento-pai.  Como utilizamos a declaração "dlex-direction: column", a propriedade "align-items" dirá respeito ao alinhamento horizontal. Logo, para colocar todos os nossos elementos agrupados no lado esquerdo do elemento-pai vamos utilizar a declaração "align-items: flex-start" */
+    align-items: flex-start;
+
+}
+
+/* Vamos dar um estilo mais específico para a  nossa "classe wrapper"que está dentro da div "filme-principal". */
+main .filme-principal .container{
+    /* Vamos dizer que nossa "classe wrapper" terá uma limitação de largura de 60% do elemento-pai */
+   width: 70%;
+}
+
+main .filme-principal .container .titulo{
+    margin-top: 15%;
+    font-size: 40px;
+    font-family:'Trebuchet MS', Arial, sans-serif;
+}
+
+main .filme-principal .container .descricao{
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+main .filme-principal .container .botoes .botao{
+
+    /* Vamos deixar nossos botões mais transparentes */
+    background-color: rgba(0,0,0,.50);
+
+    /* Os botões vem, como padrão, com uma borda. Por isso nós vamos retirar essa borda.*/
+    border: none; 
+    color: white;
+
+    /* As bordas dos nossos botões estão muito perto do conteúdo deles, então o botão acaba ficando muito pequeno. Vamos aumentar um pouco a largura e altura desse botão pra corrigir isso. Quando temos dois valores, o primeiro valor será sempre para "top" e "bottom" e o segundo valor será para "left" e "right */
+    padding: 15px 30px;
+
+    /* Vamos dar um espaçamento entre os botões pois eles estão muito grudados um no outro */
+    margin-right: 15px;
+    font-size: 12px;
+
+    /* Vamos estilizar nosso botão para que o usuário, quando passe o mouse sobre o botão, o cursor do botão apareca aquela mãozinha. */
+    cursor:pointer;
+
+    /* Vamos utilizar a propriedade "transition" para que nosso botão, quando for passar para o estado "hover" faça isso de forma mais suave */
+    transition: .3s ease all;
+}
+
+/* Vamos determinar qual cor o botão terá quando o mouse estiver passando em cima dele. */
+main .filme-principal .container .botoes .botao:hover{
+    background-color: white;
+    color: black;
+}
+
+/* Vamos colocar um espaçamento entre o ícone do "font awesome" e o conteúdo escrito do nosso botão. */
+main .filme-principal .container .botoes .botao i{
+    margin-right: 8px;
+}
+
+/* Vamos dar um pouco de espaço entre a nossa caixa de minuaturas de cartazes de séries e o cartaz da série principal. */
+.carrossel-filmes{
+    margin-top: 5px;
+}
+
+
+/* Vamos criar uma classe para limitar o tamanho das imagens/miniaturas de cartazes das séries que estarão no carrossel */
+.carrossel-filmes .owl-carousel.owl-theme .item .box-filme{
+    height: 100%;
+    width: 100%;
+    display: block;
+}

@@ -1,0 +1,32 @@
+/* Vamos criar um "media-query" que, basicamente eu estou dizendo para o CSS que sempre que a minha tela do computador estiver no máximo (ou no mínimo) até determinado tamanho (que é estabelecido entre parênteses, o CSS da minha página deverá se comportar de uma forma específica.*/
+@media screen and (max-width: 700px){
+
+    /* Vamos estilizar o comportamento da logo e a nav-bar, quando a tela estiver pequena (isso porque, quando a tela está pequena, os elementos-filho da nav bar ficam todos aglutinados perto da logo.) */
+    header .container{
+        display: flex;
+
+        /* Vamos utilizar a declaração "flex-direction: column" para que, se a página estiver pequena, o menu "nav-bar" seja jogado para baixo. Assim, a logo vai ocupar uma linha e o menu ocupará uma linha abaixo */
+        flex-direction: column;
+    }
+
+    /* Vamos mexer um pouco na configuração do botão pois a página, quando fica muito pequena eles, apesar de ficarem um embaixo do outro, ficam muito grudados. */
+    main .filme-principal .container .botoes .botao{
+
+        /* Vamos dar um espaçamento na margem superior dos botões para que eles fiquem menos grudados */
+        margin-top: 5px; 
+
+        /* Vamos colocar uma largura padronizada para os botões para que eles, quando ficarem um embaixo do outro, tenham um design mais limpo*/
+        width: 300px;
+
+    }
+    
+}
+
+/* A configuração de CSS abaixo será aplicada até que nossa página tenha uma largura de 1000px. */
+@media screen and (min-width:100px){
+    
+    /* Vamos determinar que a descrição do nosso filme principal, se a tela estiver num tamanho até 1000px, tenha uma largura pequena */
+    main .filme-principal .container .descricao{ 
+        width: 50%;
+    }
+}
